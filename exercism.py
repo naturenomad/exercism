@@ -23,3 +23,23 @@ print("Hello, World!")
 x=input()
 print("One for {}, one for me".format(x))
 
+
+###########################################
+# 2 - Raindrops (easy)
+###########################################
+
+# Convert a number to a string, the content of which depends on the number's factors.
+
+# conditionals, integers, text formatting
+
+def raindrops():
+    n=int(input("Please enter an integer number: "))
+    factors=list()
+    for i in range(1,n+1):
+        if n%i == 0:
+            factors.append(i)
+    str="Factors in number {} are ".format(n)
+    for f in factors:
+        str += "{}, ".format(f)
+    str = str[:-2]
+    print(str)
