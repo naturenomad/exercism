@@ -25,7 +25,7 @@ print("One for {}, one for me".format(x))
 
 
 ###########################################
-# 2 - Raindrops (easy)
+# 3 - Raindrops (easy)
 ###########################################
 
 # Convert a number to a string, the content of which depends on the number's factors.
@@ -43,3 +43,60 @@ def raindrops():
         str += "{}, ".format(f)
     str = str[:-2]
     print(str)
+
+
+###########################################
+# 4 - High Scores (easy) - INCOMPLETE (UNCLEAR QUESTION)
+###########################################
+
+# Manage a player's High Score list
+
+# sequences, text formatting, classes, conditionals
+
+
+###########################################
+# 5 - Matrix (easy)
+###########################################
+
+# Given a string representing a matrix of numbers, return the rows and columns of that matrix.
+
+# integers, loops, matrices, type conversion
+
+import numpy as np
+
+# This interpretation of the question plays a little with numpy concepts
+def matrix(str):
+    
+    #str = "1 2 3, 4 5 6, 7 8 9"
+    
+    # First, split the string into rows
+    lst = str.split(", ")
+    
+    # Split the rows into columns
+    lst = [i.split() for i in lst]
+    
+    # Convert strings to integers
+    
+    # Using numpy
+    matr = np.array(lst)
+    matr = matr.astype(np.int)
+    
+    # Or using map (ie the pythonic way)
+    lst = [list(map(int, x)) for x in lst]
+    
+    # Print rows
+    rowstr = "Rows: "
+    for row in range(matr.shape[0]):
+        rowstr += '{}, '.format(matr[row,:])
+    print(rowstr[:-2])
+    
+    # Print columns
+    colstr = "Columns: "
+    for col in range(matr.shape[1]):
+        colstr += '{}, '.format(matr[:,col])
+    print(colstr[:-2])    
+    
+
+matrix("1 2 3, 4 5 6, 7 8 9")
+
+
