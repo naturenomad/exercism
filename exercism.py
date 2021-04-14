@@ -100,3 +100,29 @@ def matrix(str):
 matrix("1 2 3, 4 5 6, 7 8 9")
 
 
+###########################################
+# 5 - Hamming (easy)
+###########################################
+
+# Calculate the Hamming difference between two DNA strands.
+
+# algorithms, conditionals, filtering, logic, loops, sequences, sets, strings
+
+# The Hamming distance between two strings of equal length is the number of positions at which the 
+# corresponding symbols are different.
+
+def hamming(str1, str2):
+    hamming = 0
+    
+    # First check strings are same length
+    if len(str1) != len(str2):
+        return "Strands are not of equal length"
+    
+    for i in range(len(str1)):
+        if str2[i] != str1[i]:
+            hamming += 1
+    
+    return "Hamming distance is: {}".format(hamming)
+
+hamming('GATTACA', 'GACTATA')
+
