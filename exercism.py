@@ -101,7 +101,7 @@ matrix("1 2 3, 4 5 6, 7 8 9")
 
 
 ###########################################
-# 5 - Hamming (easy)
+# 6 - Hamming (easy)
 ###########################################
 
 # Calculate the Hamming difference between two DNA strands.
