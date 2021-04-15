@@ -126,3 +126,27 @@ def hamming(str1, str2):
 
 hamming('GATTACA', 'GACTATA')
 
+
+###########################################
+# 7 - Isogram (easy)
+###########################################
+
+# Determine if a word or phrase is an isogram.
+
+# algorithms, conditionals, loops, strings
+
+# An isogram is a word with no letters repeated within the word. 
+
+def isogram(phrase):
+    phrase = phrase.replace(' ','')
+    if len(set(phrase)) == len(phrase):
+        return "Isogram"
+    else:
+        return "Not isogram"
+
+
+isogram("This is a cow")
+isogram("countryside")
+
+
+
