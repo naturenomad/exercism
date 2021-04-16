@@ -149,4 +149,38 @@ isogram("This is a cow")
 isogram("countryside")
 
 
+###########################################
+# 8 - Twelve Days (medium) - INCOMPLETE (NOT CHALLENGING)
+###########################################
+
+# Output the lyrics to 'The Twelve Days of Christmas'
+
+# lists, strings, text formatting
+
+
+###########################################
+# 9 - Word Count (easy)
+###########################################
+
+# Given a phrase, count the occurrences of each word in that phrase.
+
+# algorithms, logic, pattern recognition, strings, text formatting
+
+import string
+
+def wordcount(phrase):
+    #Remove punctuation, make lowercase and split phrase into words
+    phrase = phrase.translate(str.maketrans('', '', string.punctuation)).lower().split()
+    
+    #Make dictionary of list items and counts
+    phrasedict = {word:phrase.count(word) for word in phrase}
+    
+    #Print the dict out nicely
+    for word in phrasedict:
+        print('{}: {}'.format(word, phrasedict[word]))
+
+wordcount("This is not a pig, this is a mouse")
+
+
+
 
