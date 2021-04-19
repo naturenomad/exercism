@@ -212,5 +212,26 @@ scrabblescore('blingblong')
 scrabblescore('hi')
 
 
+###########################################
+# 11 - Acronym (easy)
+###########################################
+
+# Convert a long phrase to its acronym
+
+# regular expressions, strings
+
+import string
+
+def acronym(phrase):
+    #Remove punctuation, make lowercase and split phrase into word list
+    phrase = phrase.translate(str.maketrans('', '', string.punctuation)).lower().split()
+    
+    #Get first letter, convert back to string, make upper case
+    acronym = ''.join([i[0] for i in phrase]).upper()
+    print(acronym)
+
+acronym("why can't pigs fly")
+
+
 
 
