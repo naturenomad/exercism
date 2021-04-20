@@ -233,5 +233,36 @@ def acronym(phrase):
 acronym("why can't pigs fly")
 
 
+###########################################
+# 12 - Kindergarten garden (easy) - INCOMPLETE (UNCLEAR TASK)
+###########################################
+
+# Given a diagram, determine which plants each child in the kindergarten class is responsible for.
+
+# arrays. classes, optional values, variables
+
+
+###########################################
+# 13 - Grade School (easy)
+###########################################
+
+# Given students' names along with the grade that they are in, create a roster for the school
+
+# conditionals, filtering, integers, lists, sorting, strings
+
+def roster(children):
+    # Accept a dictionary of children and their class    
+    classes = set(children.values())
+    for i in classes:
+        print('#### Grade {} ####'.format(i))
+        for child in children:
+            if children[child] == i:
+                print(child)
+        print('\r')
+
+children = {'ben':1, 'katey':2, 'biff':1, 'jane':3, 'peter':2, 'bingo':1, 'violet':3, 'bo':2}
+roster(children)
+
+
 
 
