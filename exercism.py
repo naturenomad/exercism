@@ -264,5 +264,95 @@ children = {'ben':1, 'katey':2, 'biff':1, 'jane':3, 'peter':2, 'bingo':1, 'viole
 roster(children)
 
 
+###########################################
+# 14 - Luhn (medium)
+###########################################
+
+# Given a number determine whether or not it is valid per the Luhn formula.
+
+# algorithms, conditionals, loops, pattern matching, security
+
+# The Luhn Algorithm is a simple checksum formula used to validate a variety of identification numbers, 
+# such as credit card numbers.
+# Also called the Modulus 10 Algorithm.
+
+# (1) From the rightmost digit (excluding the check digit) and moving left, double the value of every second digit. 
+# The check digit is neither doubled nor included in this calculation; the first digit doubled is the digit located 
+# immediately left of the check digit. If the result of this doubling operation is greater than 9 (e.g., 8 × 2 = 16), 
+# then add the digits of the result (e.g., 16: 1 + 6 = 7, 18: 1 + 8 = 9) or, equivalently, subtract 9 from the result 
+# (e.g., 16: 16 − 9 = 7, 18: 18 − 9 = 9).
+        
+# (2) Take the sum of all the digits (including the check digit).
+
+# (3) If the total modulo 10 is equal to 0 (if the total ends in zero) then the number is valid according to the Luhn 
+# formula; otherwise it is not valid.
+
+####
+
+# Some data -
+
+# All valid credit card numbers
+valid1 = [4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8]
+valid2 = [5, 5, 3, 5, 7, 6, 6, 7, 6, 8, 7, 5, 1, 4, 3, 9]
+valid3 = [3, 7, 1, 6, 1, 2, 0, 1, 9, 9, 8, 5, 2, 3, 6]
+valid4 = [6, 0, 1, 1, 1, 4, 4, 3, 4, 0, 6, 8, 2, 9, 0, 5]
+valid5 = [4, 5, 3, 9, 4, 0, 4, 9, 6, 7, 8, 6, 9, 6, 6, 6]
+
+# All invalid credit card numbers
+invalid1 = [4, 5, 3, 2, 7, 7, 8, 7, 7, 1, 0, 9, 1, 7, 9, 5]
+invalid2 = [5, 7, 9, 5, 5, 9, 3, 3, 9, 2, 1, 3, 4, 6, 4, 3]
+invalid3 = [3, 7, 5, 7, 9, 6, 0, 8, 4, 4, 5, 9, 9, 1, 4]
+invalid4 = [6, 0, 1, 1, 1, 2, 7, 9, 6, 1, 7, 7, 7, 9, 3, 5]
+invalid5 = [5, 3, 8, 2, 0, 1, 9, 7, 7, 2, 8, 8, 3, 8, 5, 4]
+
+# Can be either valid or invalid
+mystery1 = [3, 4, 4, 8, 0, 1, 9, 6, 8, 3, 0, 5, 4, 1, 4]
+mystery2 = [5, 4, 6, 6, 1, 0, 0, 8, 6, 1, 6, 2, 0, 2, 3, 9]
+mystery3 = [6, 0, 1, 1, 3, 7, 7, 0, 2, 0, 9, 6, 2, 6, 5, 6, 2, 0, 3]
+mystery4 = [4, 9, 2, 9, 8, 7, 7, 1, 6, 9, 2, 1, 7, 0, 9, 3]
+mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
+
+####
+
+# Optional function to turn a number into a numeric list for the luhn function
+def makelist(num):
+    return [int(x) for x in str(num)]
+
+makelist(123456789)
+
+####
+
+def luhndoubling(num):
+    num = 2*num
+    if num > 9:
+        num = num - 9
+    return num
+
+def luhn(lst):
+    # First, luhndoubling every second digit from right excluding check digit :
+    lst.reverse()
+    lst = [luhndoubling(value) if key % 2 == 1 else value for key,value in enumerate(lst)]
+    # Sum must be divisible by 10
+    if sum(lst) % 10 == 0:
+        return 'Valid Luhn Number'
+    else:
+        return 'Invalid Luhn Number'
+
+luhn(valid1)
+luhn(valid2)
+luhn(valid3)
+luhn(valid4)
+luhn(valid5)
+luhn(invalid1)
+luhn(invalid2)
+luhn(invalid3)
+luhn(invalid4)
+luhn(invalid5)
+luhn(mystery1)
+luhn(mystery2)
+luhn(mystery3)
+luhn(mystery4)
+luhn(mystery5)
+
 
 
